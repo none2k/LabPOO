@@ -1,0 +1,16 @@
+1. ¿Por qué declaramos los atributos como private y no como public?
+Por un principio fundamental llamado encapsulamiento. Declararlos como private protege los datos del objeto para que no puedan ser modificados directamente desde otras clases. 
+Si fueran public, cualquier parte del código podría cambiar el peso de un animal a un número negativo o su nombre a un valor vacío por accidente. 
+Al ser privados, obligas a que la única forma de interactuar con ellos sea a través de métodos controlados (como los getters y setters o el constructor).
+
+2. ¿Qué pasaría si quitaras el super() del constructor de Perro?
+Obtendrías un error de compilación y el programa no correría.
+En Java, cuando una clase hereda de otra, su constructor siempre debe llamar al constructor de la clase padre primero. 
+Si tú no escribes super(), Java intenta insertar un super() vacío por defecto (sin parámetros). 
+Sin embargo, como en tu clase Animal definiste un constructor que pide obligatoriamente 3 parámetros (nombre, edad, peso), Java no encontrará un constructor vacío al cual llamar y marcará error.
+
+3. ¿Qué ventaja tiene sobreescribir toString() en lugar de crear un método con otro nombre?
+La principal ventaja es la integración automática con Java.
+El método toString() existe por defecto en todos los objetos de Java (porque lo heredan de la clase maestra Object). 
+Si tú creas un método con otro nombre (por ejemplo, imprimirDatos()), tendrías que llamarlo manualmente cada vez. Pero al sobreescribir (@Override) el método toString(), 
+puedes hacer cosas como System.out.println(perro); y Java sabrá automáticamente que debe usar tu método para mostrar el texto, en lugar de imprimir un código raro con la dirección de memoria del objeto.
