@@ -1,0 +1,3 @@
+Flecha elfica,30
+Pocion de vida,8
+Pergamino de fuego,3
